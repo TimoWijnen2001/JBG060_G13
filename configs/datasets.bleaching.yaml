@@ -1,0 +1,37 @@
+root: "/content/drive/MyDrive/01_data"
+
+datasets:
+  - name: "RS_BLEACHING"
+    group: "bleaching"
+    images_glob: "coral_bleaching/RS_BLEACHING/images/**/*"
+    mask:
+      dir: "coral_bleaching/RS_BLEACHING/masks"
+      naming: "same_basename"       # or "suffix"
+      suffix: ""                    # used if naming == "suffix"
+      ext: ".png"
+    label_type: "pixel_mask"
+    palette_key: "rs_bleaching_v1"
+    has_points: false
+
+  - name: "SEGMENTED_SEAVIEW_SUBSET"
+    group: "benthic"
+    images_glob: "benthic_datasets/SEGMENTED_SEAVIEW_SUBSET/images/**/*"
+    mask:
+      dir: "benthic_datasets/SEGMENTED_SEAVIEW_SUBSET/masks_stitched"
+      naming: "suffix"
+      suffix: "_mask"
+      ext: ".png"
+    label_type: "pixel_mask"
+    palette_key: "seaview_segmented_v1"
+    has_points: false
+
+  - name: "SEAVIEW"
+    group: "benthic"
+    images_glob: "benthic_datasets/SEAVIEW/images/**/*"
+    mask: null                      # none expected
+    label_type: "points"
+    points:
+      dir: "benthic_datasets/SEAVIEW/points"
+      matcher: "by_stem"            # how to match image→points (you implement)
+    palette_key: null
+    has_points: true
