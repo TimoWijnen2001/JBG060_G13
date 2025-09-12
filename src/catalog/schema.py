@@ -1,0 +1,1 @@
+# the canonical row schema (+ helpers to validate rows)
