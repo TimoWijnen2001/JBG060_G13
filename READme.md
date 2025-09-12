@@ -1,3 +1,5 @@
 # Here we have to give an overview of our project
 
-At the moment I have added the template notebooks they gave us to view some data and simple stuff we can work with to start.
+# Notes i dont want to forget
+
+- Optionalyl we can use ROI, we can use provided segmentation data or point labels grown into masks to focus bleaching classification strictly on coral pixels, this could cut the number of white sand = bleached flash positives and enables % bleached cover
