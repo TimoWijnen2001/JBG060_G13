@@ -30,3 +30,9 @@ REQUIRED_COLUMNS = [
     "label_type","palette_key","has_points","points_path",
     "site","transect","date","width","height","qc_flags"
 ]
+
+def validate_row(row: CatalogRow) -> None:
+    """Assertions and type checks, you can add any if you see 
+    that there is anything else we can check, raise if something is off"""
+    # task for someone: implementing miniaml checks (for example that requires fields are not empty, etc.
+    pass
