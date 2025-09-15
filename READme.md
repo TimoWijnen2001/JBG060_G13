@@ -5,3 +5,13 @@
 - Optionalyl we can use ROI, we can use provided segmentation data or point labels grown into masks to focus bleaching classification strictly on coral pixels, this could cut the number of white sand = bleached flash positives and enables % bleached cover
 
 - i am putting as many comments in code as possible so everyone, including myself, can understand more whats going on, since i prefer to build the code slowly and understanding whats going on then mass producing malfunctioning scripts.
+
+after all the todos are done run this:
+
+# from project/ root
+
+python -m catalog.build_catalog \
+  --config configs/datasets.bleaching.yaml \
+  --out outputs/bleaching_catalog.csv \
+  --only RS_BLEACHING SEGMENTED_SEAVIEW_SUBSET \
+  --limit 200
