@@ -15,3 +15,19 @@ python -m catalog.build_catalog \
   --out outputs/bleaching_catalog.csv \
   --only RS_BLEACHING SEGMENTED_SEAVIEW_SUBSET \
   --limit 200
+
+this is the order we should do it in, if someones works on something, please put your name so that others know, and the next person can take on the next task:
+
+1. Fill load_profiles (YAML → DatasetProfile). (DAVID M)
+
+2. Implement list_images and mask inference for one dataset (e.g., RS_BLEACHING).
+
+3. Add QC: readability + size match flags.
+
+4. Write CSV, run with --limit 50, spot-check in the sanity notebook.
+
+5. Add the second dataset (segmented Seaview); extend mask inference rules.
+
+6. Add points support (Seaview): implement find_points_file.
+
+7. Add context parsing (site/transect/date) if the folder names encode them.
