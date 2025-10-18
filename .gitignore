@@ -210,3 +210,7 @@ bleaching_data_RS/
 benthic_data/*
 CoralMask/
 .gitignore
+coral_project_outputs/content
+coral_project_outputs/normalized_masks
+coral_project_outputs/resized_data
+CoralSCOP/
