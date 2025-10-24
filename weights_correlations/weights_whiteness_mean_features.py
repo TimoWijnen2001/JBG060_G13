@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from numpy.linalg import inv
 
-# Scenario 2 : Whiteness features
+# Whiteness features
 features = ["mean_raw_red", "mean_albedo", "mean_luminance", "mean_saturation"]
 
 # correlations with bleaching (%)
@@ -30,3 +30,4 @@ df = pd.DataFrame({
 }).set_index("feature").sort_values("importance share (|β|/Σ|β|)", ascending=False)
 
 print(df)
+
