@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 file_path = r"C:\Users\20220848\OneDrive - TU Eindhoven\Desktop\TuE\4th year\Q1\DC3\Mathematical approach\bleaching_texture_features_standardized - bleaching_texture_features_standardized.csv"
 df = pd.read_csv(file_path)
 
-# === 2. Clean the data (remove rows with missing relevant columns) ===
+# === 2. Clean the data ===
 df_clean = df.dropna(subset=[
     'perc_bleached',
     'lap_var_gray_masked_std',
@@ -44,3 +44,4 @@ sns.heatmap(
 plt.title("Correlation Matrix — Texture Features and % Coral Bleached", fontsize=12)
 plt.tight_layout()
 plt.show()
+
