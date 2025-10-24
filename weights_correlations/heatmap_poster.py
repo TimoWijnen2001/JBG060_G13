@@ -12,7 +12,7 @@ HEATMAP_SCORES_PNG = r"C:\Users\20220848\OneDrive - TU Eindhoven\Desktop\TuE\4th
 
 # ========= 2) LOAD =========
 df = pd.read_csv(INPUT_CSV)
-# ========= 5) HEATMAP A: MEDIAN-ONLY (no mean columns) =========
+# ========= 5) HEATMAP A: MEDIAN-ONLY =========
 median_cols = [
     "median_raw_red_z",
     "median_albedo_z",
@@ -39,14 +39,11 @@ plt.savefig(HEATMAP_MEDIAN_PNG, dpi=300)
 plt.show()
 print(f"Saved: {Path(HEATMAP_MEDIAN_PNG).resolve()}")
 
-# ========= 6) HEATMAP B: single row like your example =========
-# Correlation of % bleached with the two whiteness scores
+# ========= 6) HEATMAP B =========
 score_cols = ["median_whiteness_score", "mean_whiteness_score", "bleached_percentage"]
 df_scores = df.dropna(subset=score_cols)[score_cols]
 
-# Compute correlations of bleached_percentage vs each score
 corr_series = df_scores[["median_whiteness_score", "mean_whiteness_score"]].corrwith(df_scores["bleached_percentage"])
-# Turn into 1x2 DataFrame for a single-row heatmap
 one_row = corr_series.to_frame().T
 one_row.index = ["% bleached"]  # label like the example
 
@@ -65,4 +62,5 @@ plt.yticks(rotation=0)
 plt.tight_layout()
 plt.savefig(HEATMAP_SCORES_PNG, dpi=300)
 plt.show()
+
 print(f"Saved: {Path(HEATMAP_SCORES_PNG).resolve()}")
