@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import os
 
 # ========= 1) LOAD BOTH DATASETS =========
-texture_path = r"C:\Users\20220848\OneDrive - TU Eindhoven\Desktop\TuE\4th year\Q1\DC3\Mathematical approach\bleaching_texture_with_score.csv"       # file that includes 'texture_score'
+texture_path = r"C:\Users\20220848\OneDrive - TU Eindhoven\Desktop\TuE\4th year\Q1\DC3\Mathematical approach\bleaching_texture_with_score.csv"      
 whiteness_path = r"C:\Users\20220848\OneDrive - TU Eindhoven\Desktop\TuE\4th year\Q1\DC3\Mathematical approach\whiteness_scores_added.csv"
 
 # ========= 2) Load =========
@@ -86,3 +86,4 @@ plt.ylabel("Mean Whiteness Score")
 plt.tight_layout()
 
 plt.show()
+
