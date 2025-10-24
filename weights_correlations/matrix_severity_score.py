@@ -7,8 +7,8 @@ from pathlib import Path
 import os
 
 # ========= 1) CONFIG =========
-texture_path = r"C:\Users\20220848\OneDrive - TU Eindhoven\Desktop\TuE\4th year\Q1\DC3\Mathematical approach\bleaching_texture_with_score.csv"      # has: image, texture_score, perc_bleached
-whiteness_path = r"C:\Users\20220848\OneDrive - TU Eindhoven\Desktop\TuE\4th year\Q1\DC3\Mathematical approach\whiteness_scores_added.csv"          # has: image_path, median_whiteness_score
+texture_path = r"C:\Users\20220848\OneDrive - TU Eindhoven\Desktop\TuE\4th year\Q1\DC3\Mathematical approach\bleaching_texture_with_score.csv"      
+whiteness_path = r"C:\Users\20220848\OneDrive - TU Eindhoven\Desktop\TuE\4th year\Q1\DC3\Mathematical approach\whiteness_scores_added.csv"          
 output_csv = r"C:\Users\20220848\OneDrive - TU Eindhoven\Desktop\TuE\4th year\Q1\DC3\Mathematical approach\merged_with_severity.csv"
 output_heatmap = r"C:\Users\20220848\OneDrive - TU Eindhoven\Desktop\TuE\4th year\Q1\DC3\Mathematical approach\heatmap_severity_whiteness_texture.png"
 
@@ -72,3 +72,4 @@ plt.savefig(output_heatmap, dpi=300)
 plt.show()
 
 print(f"✅ Saved heatmap to: {Path(output_heatmap).resolve()}")
+
