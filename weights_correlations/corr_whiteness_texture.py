@@ -22,12 +22,10 @@ def to_key(x):
     stem = os.path.splitext(base)[0]
     return stem.lower()
 
-# texture file uses 'image' (often with .jpg)
 if "image" not in tex.columns:
     raise ValueError("Expected column 'image' in texture CSV.")
 tex["key"] = tex["image"].apply(to_key)
 
-# whiteness file uses 'image_path' (often without extension)
 if "image_path" not in wh.columns:
     raise ValueError("Expected column 'image_path' in whiteness CSV.")
 wh["key"] = wh["image_path"].apply(to_key)
@@ -55,8 +53,6 @@ merged = pd.merge(
 )
 
 print(f"Merged rows: {len(merged)}")
-
-# Remove rows with missing scores (just in case)
 merged = merged.dropna(subset=["texture_score", "median_whiteness_score", "mean_whiteness_score"])
 
 # ========= 6) Compute correlations =========
@@ -69,7 +65,6 @@ print(f"Correlation (texture ↔ mean whiteness):   {corr_mean:.3f}")
 # ========= 7) Plots =========
 plt.figure(figsize=(10, 4))
 
-# Median scatter
 plt.subplot(1, 2, 1)
 sns.regplot(
     data=merged, x="texture_score", y="median_whiteness_score",
@@ -79,7 +74,6 @@ plt.title(f"Texture vs Median Whiteness (r = {corr_median:.2f})")
 plt.xlabel("Texture Score")
 plt.ylabel("Median Whiteness Score")
 
-# Mean scatter
 plt.subplot(1, 2, 2)
 sns.regplot(
     data=merged, x="texture_score", y="mean_whiteness_score",
@@ -90,4 +84,5 @@ plt.xlabel("Texture Score")
 plt.ylabel("Mean Whiteness Score")
 
 plt.tight_layout()
+
 plt.show()
