@@ -1,4 +1,4 @@
-# --- Compute Whiteness Scores (Mean & Median) and Create Correlation Heatmaps ---
+# --- Compute Whiteness Scores (Mean & Median) and Creates Correlation Heatmaps ---
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -42,7 +42,6 @@ df["mean_whiteness_score"] = (
     + 0.322229 * df["mean_saturation_z"]
 )
 
-# Move new columns to the right end for readability
 cols = list(df.columns)
 for new_col in ["median_whiteness_score", "mean_whiteness_score"]:
     cols = [c for c in cols if c != new_col] + [new_col]
@@ -82,3 +81,4 @@ plt.savefig(HEATMAP_PNG, dpi=300)
 plt.show()
 
 print(f"✅ Saved correlation heatmap to: {Path(HEATMAP_PNG).resolve()}")
+
