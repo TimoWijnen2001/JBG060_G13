@@ -1,5 +1,3 @@
-# --- Add texture_score and create correlation matrix (Texture features) ---
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -13,7 +11,6 @@ HEATMAP_PNG = r"C:\Users\20220848\OneDrive - TU Eindhoven\Desktop\TuE\4th year\Q
 # ========= 2) LOAD =========
 df = pd.read_csv(INPUT_CSV)
 
-# Ensure required columns exist
 required_cols = [
     "glcm_correlation_std",
     "lbp_var_gray_masked_std",
@@ -25,14 +22,12 @@ if missing:
     raise ValueError(f"Missing required column(s): {missing}")
 
 # ========= 3) COMPUTE texture_score =========
-# texture_score = 0.333153*(glcm_correlation_std) + 0.074896*(lbp_var_gray_masked_std) - 0.016813*(lap_var_gray_masked_std)
 df["texture_score"] = (
     0.333153 * df["glcm_correlation_std"]
     + 0.074896 * df["lbp_var_gray_masked_std"]
     - 0.016813 * df["lap_var_gray_masked_std"]
 )
 
-# Move 'texture_score' to the right end of the DataFrame (optional; for neatness)
 cols = list(df.columns)
 cols = [c for c in cols if c != "texture_score"] + ["texture_score"]
 df = df[cols]
@@ -71,3 +66,4 @@ plt.tight_layout()
 plt.savefig(HEATMAP_PNG, dpi=300)
 plt.show()
 print(f"Saved correlation heatmap to: {Path(HEATMAP_PNG).resolve()}")
+
