@@ -45,12 +45,12 @@ df_scores = df.dropna(subset=score_cols)[score_cols]
 
 corr_series = df_scores[["median_whiteness_score", "mean_whiteness_score"]].corrwith(df_scores["bleached_percentage"])
 one_row = corr_series.to_frame().T
-one_row.index = ["% bleached"]  # label like the example
+one_row.index = ["% bleached"] 
 
 print("\nCorrelation of % bleached with whiteness scores:")
 print(one_row.round(3))
 
-plt.figure(figsize=(6, 2.6))  # short and wide, like your example
+plt.figure(figsize=(6, 2.6))  
 sns.heatmap(
     one_row.round(2),
     annot=True, fmt=".2f",
@@ -64,3 +64,4 @@ plt.savefig(HEATMAP_SCORES_PNG, dpi=300)
 plt.show()
 
 print(f"Saved: {Path(HEATMAP_SCORES_PNG).resolve()}")
+
