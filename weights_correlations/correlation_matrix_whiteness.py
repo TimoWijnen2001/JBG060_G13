@@ -1,5 +1,4 @@
 # --- Coral Bleaching Feature Correlation Matrices (Mean & Median) ---
-# Import libraries
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -8,7 +7,7 @@ import matplotlib.pyplot as plt
 file_path = r"C:\Users\20220848\OneDrive - TU Eindhoven\Desktop\TuE\4th year\Q1\DC3\Mathematical approach\standardized_feature_score_per_image.csv"
 df = pd.read_csv(file_path)
 
-# === 2. Clean the data (remove empty rows for bleaching and feature columns) ===
+# === 2. Clean the data ===
 df_clean = df.dropna(subset=[
     'bleached_percentage',
     'mean_raw_red_z', 'mean_albedo_z', 'mean_luminance_z', 'mean_saturation_z',
@@ -71,3 +70,4 @@ axes[1].set_title("Median Standardized Feature Scores vs. % Coral Bleached", fon
 
 plt.tight_layout()
 plt.show()
+
