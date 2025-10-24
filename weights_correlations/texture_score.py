@@ -36,7 +36,7 @@ df = df[cols]
 df.to_csv(OUTPUT_CSV, index=False)
 print(f"Saved updated dataset with texture_score to: {Path(OUTPUT_CSV).resolve()}")
 
-# ========= 5) CORRELATION (including texture_score) =========
+# ========= 5) CORRELATION =========
 corr_features = [
     "lap_var_gray_masked_std",
     "lbp_var_gray_masked_std",
@@ -66,4 +66,5 @@ plt.tight_layout()
 plt.savefig(HEATMAP_PNG, dpi=300)
 plt.show()
 print(f"Saved correlation heatmap to: {Path(HEATMAP_PNG).resolve()}")
+
 
